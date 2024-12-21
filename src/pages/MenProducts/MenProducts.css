@@ -1,0 +1,118 @@
+.men-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .category-container {
+    /* display: flex; */
+    gap: 30px;
+    /* justify-content: center; */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px; /* Space between categories */
+  }
+  
+  .category-items {
+    display: flex;
+    /* overflow-x: auto; */
+    gap: 15px;
+    /* padding: 10px 0; */
+    /* width: 100%; */
+  }
+  
+  .item {
+    text-align: center;
+    /* flex: 0 0 auto; /* Ensure the items don't shrink */
+  } */
+  
+  .item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .scroll-button.left {
+    left: 200px;
+  }
+  
+  .scroll-button.right {
+    right: 200px;
+  }
+  
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .category-container {
+      flex-direction: column; /* Stack categories vertically */
+      align-items: center; /* Center categories */
+      gap: 20px;
+    }
+  
+    .category {
+      width: 90%; /* Make categories take up more width on smaller screens */
+    }
+  
+    .category-items {
+      gap: 10px;
+    }
+  
+    .item-image {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .scroll-button {
+      font-size: 18px;
+      padding: 5px;
+    }
+  }
+  
+  /* Tablet View (Portrait) */
+  @media (max-width: 480px) {
+    .category-container {
+      gap: 10px;
+    }
+  
+    .category {
+      width: 100%; /* Make categories full width on mobile */
+    }
+  
+    .category-items {
+      gap: 5px;
+    }
+  
+    .item-image {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .scroll-button {
+      font-size: 16px;
+      padding: 5px;
+    }
+  }
+  
