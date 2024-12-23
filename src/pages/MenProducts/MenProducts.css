@@ -1,118 +1,159 @@
+/* Reset or base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Main container for the page */
 .men-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .category-container {
-    /* display: flex; */
-    gap: 30px;
-    /* justify-content: center; */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  }
-  
-  .category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    margin-bottom: 20px; /* Space between categories */
-  }
-  
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Category Container Styling */
+.category {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Category Title */
+.category h2 {
+  font-size: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Item grid container */
+.category-items {
+  display: flex;
+  overflow: hidden;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Each item styling (cards) */
+.item {
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.item:hover .item-image {
+  transform: scale(1.05);
+}
+
+.item p {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  background-color: #f7f7f7;
+  margin: 0;
+}
+
+/* Scroll buttons */
+.scroll-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.scroll-button.left {
+  left: -25px;
+}
+
+.scroll-button.right {
+  right: 10px;
+}
+
+/* For responsive designs */
+@media (max-width: 768px) {
   .category-items {
-    display: flex;
-    /* overflow-x: auto; */
     gap: 15px;
-    /* padding: 10px 0; */
-    /* width: 100%; */
   }
-  
+
   .item {
-    text-align: center;
-    /* flex: 0 0 auto; /* Ensure the items don't shrink */
-  } */
-  
-  .item-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 150px;
   }
-  
+
   .scroll-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
     font-size: 20px;
-    padding: 5px 10px;
-    cursor: pointer;
-    z-index: 10;
+    padding: 8px 12px;
   }
-  
-  .scroll-button.left {
-    left: 200px;
+}
+
+@media (max-width: 480px) {
+  .category-items {
+    gap: 10px;
   }
-  
-  .scroll-button.right {
-    right: 200px;
+
+  .item {
+    width: 120px;
   }
-  
-  /* Mobile View */
-  @media (max-width: 768px) {
-    .category-container {
-      flex-direction: column; /* Stack categories vertically */
-      align-items: center; /* Center categories */
-      gap: 20px;
-    }
-  
-    .category {
-      width: 90%; /* Make categories take up more width on smaller screens */
-    }
-  
-    .category-items {
-      gap: 10px;
-    }
-  
-    .item-image {
-      width: 80px;
-      height: 80px;
-    }
-  
-    .scroll-button {
-      font-size: 18px;
-      padding: 5px;
-    }
+
+  h1 {
+    font-size: 2rem;
   }
-  
-  /* Tablet View (Portrait) */
-  @media (max-width: 480px) {
-    .category-container {
-      gap: 10px;
-    }
-  
-    .category {
-      width: 100%; /* Make categories full width on mobile */
-    }
-  
-    .category-items {
-      gap: 5px;
-    }
-  
-    .item-image {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .scroll-button {
-      font-size: 16px;
-      padding: 5px;
-    }
+
+  .category h2 {
+    font-size: 1.5rem;
   }
-  
+}

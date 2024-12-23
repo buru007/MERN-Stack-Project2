@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './men.css';
+import Layout from '../../component/layout/layout'
 
 const Men = () => {
   // Sample categories and items with images
@@ -7,46 +8,46 @@ const Men = () => {
     {
       name: 'T-Shirts',
       items: [
-        { name: 'T-Shirt 1', img: 'men2.jpg' },
-        { name: 'T-Shirt 2', img: '/assets/t-shirts/t-shirt2.jpg' },
-        { name: 'T-Shirt 3', img: '/assets/t-shirts/t-shirt3.jpg' },
-        { name: 'T-Shirt 4', img: '/assets/t-shirts/t-shirt4.jpg' },
-        { name: 'T-Shirt 5', img: '/assets/t-shirts/t-shirt5.jpg' },
-        { name: 'T-Shirt 6', img: '/assets/t-shirts/t-shirt6.jpg' },
-        { name: 'T-Shirt 7', img: '/assets/t-shirts/t-shirt7.jpg' },
-        { name: 'T-Shirt 8', img: '/assets/t-shirts/t-shirt8.jpg' },
-        { name: 'T-Shirt 9', img: '/assets/t-shirts/t-shirt9.jpg' },
-        { name: 'T-Shirt 10', img: '/assets/t-shirts/t-shirt10.jpg' }
+        { name: 'T-Shirt 1', img: 'tshirt1.jpeg' },
+        { name: 'T-Shirt 2', img: 'tshirt2.jpeg' },
+        { name: 'T-Shirt 3', img: 'tshirt3.jpeg' },
+        { name: 'T-Shirt 4', img: 'tshirt4.jpeg' },
+        { name: 'T-Shirt 5', img: 'tshirt5.jpeg' },
+        { name: 'T-Shirt 6', img: 'tshirt5.jpeg' },
+        { name: 'T-Shirt 7', img: 'tshirt4.jpeg' },
+        { name: 'T-Shirt 8', img: 'tshirt3.jpeg' },
+        { name: 'T-Shirt 9', img: 'tshirt2.jpeg' },
+        { name: 'T-Shirt 10', img: 'tshirt1.jpeg' }
       ]
     },
     {
       name: 'Jeans',
       items: [
-        { name: 'Jeans 1', img: '/assets/jeans/jeans1.jpg' },
-        { name: 'Jeans 2', img: '/assets/jeans/jeans2.jpg' },
-        { name: 'Jeans 3', img: '/assets/jeans/jeans3.jpg' },
-        { name: 'Jeans 4', img: '/assets/jeans/jeans4.jpg' },
-        { name: 'Jeans 5', img: '/assets/jeans/jeans5.jpg' },
-        { name: 'Jeans 6', img: '/assets/jeans/jeans6.jpg' },
-        { name: 'Jeans 7', img: '/assets/jeans/jeans7.jpg' },
-        { name: 'Jeans 8', img: '/assets/jeans/jeans8.jpg' },
-        { name: 'Jeans 9', img: '/assets/jeans/jeans9.jpg' },
-        { name: 'Jeans 10', img: '/assets/jeans/jeans10.jpg' }
+        { name: 'Jeans 1', img: 'jeans1.jpeg' },
+        { name: 'Jeans 2', img: 'jeans2.webp' },
+        { name: 'Jeans 3', img: 'jeans3.jpg' },
+        { name: 'Jeans 4', img: 'jeans4.jpeg' },
+        { name: 'Jeans 5', img: 'jeans5.webp' },
+        { name: 'Jeans 6', img: 'jeans5.webp' },
+        { name: 'Jeans 7', img: 'jeans4.jpeg' },
+        { name: 'Jeans 8', img: 'jeans3.jpg' },
+        { name: 'Jeans 9', img: 'jeans2.webp' },
+        { name: 'Jeans 10', img: 'jeans1.jpeg' }
       ]
     },
     {
       name: 'Shoes',
       items: [
-        { name: 'Shoes 1', img: '/assets/shoes/shoes1.jpg' },
-        { name: 'Shoes 2', img: '/assets/shoes/shoes2.jpg' },
-        { name: 'Shoes 3', img: '/assets/shoes/shoes3.jpg' },
-        { name: 'Shoes 4', img: '/assets/shoes/shoes4.jpg' },
-        { name: 'Shoes 5', img: '/assets/shoes/shoes5.jpg' },
-        { name: 'Shoes 6', img: '/assets/shoes/shoes6.jpg' },
-        { name: 'Shoes 7', img: '/assets/shoes/shoes7.jpg' },
-        { name: 'Shoes 8', img: '/assets/shoes/shoes8.jpg' },
-        { name: 'Shoes 9', img: '/assets/shoes/shoes9.jpg' },
-        { name: 'Shoes 10', img: '/assets/shoes/shoes10.jpg' }
+        { name: 'Shoes 1', img: 'shoes1.webp' },
+        { name: 'Shoes 2', img: 'shoes2.webp' },
+        { name: 'Shoes 3', img: 'shoes3.jpeg' },
+        { name: 'Shoes 4', img: 'shoes4.webp' },
+        { name: 'Shoes 5', img: 'shoes5.jpeg' },
+        { name: 'Shoes 6', img: 'shoes5.jpeg' },
+        { name: 'Shoes 7', img: 'shoes4.webp' },
+        { name: 'Shoes 8', img: 'shoes3.jpeg' },
+        { name: 'Shoes 9', img: 'shoes2.webp' },
+        { name: 'Shoes 10', img: 'shoes1.webp' }
       ]
     }
   ];
@@ -78,6 +79,7 @@ const Men = () => {
   };
 
   return (
+    <Layout>
     <div className="men-page">
       <h1>Men's Clothing</h1>
       <div className="category-container">
@@ -97,11 +99,11 @@ const Men = () => {
                 .slice(startIndexes[index], startIndexes[index] + 5) // Only show 5 items at a time
                 .map((item, idx) => (
                   <div key={idx} className="item">
-                    {/* <img
-                      src={item.img} // Use path relative to the public directory
+                   <img
+                     src={`/images/${item.img}`} // Use path relative to the public folder
                       alt={item.name}
                       className="item-image"
-                    /> */}
+                      />
                     <p>{item.name}</p>
                   </div>
                 ))}
@@ -117,6 +119,7 @@ const Men = () => {
         ))}
       </div>
     </div>
+    </Layout>
   );
 };
 
