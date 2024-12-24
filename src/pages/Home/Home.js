@@ -19,34 +19,43 @@ const Home = () => {
     men: [
       {
         name: 'T-shirt',
-        image: 'menimg.webp',
+        image: 'men1.webp',
         price: '$25.99',
-       
+        description: 'A comfortable and stylish T-shirt made from 100% cotton.',
         size: ['S', 'M', 'L', 'XL'],
         color: ['Red', 'Blue', 'Black'],
         material: '100% Cotton',
-        stock: true,
+        stock: 'In Stock: 50',
       },
-      { name: 'T-shirt', image: 'menimg.webp' ,  price: '$25.99',  description: 'A comfortable and stylish T-shirt made from 90% cotton.', },
-      { name: 'Jeans', image: 'menimg.webp' ,  price: '$25.99',  description: 'A comfortable and stylish T-shirt made from 80% cotton.',  },
-      { name: 'Jeans', image: 'menimg.webp' ,  price: '$25.99' , description: 'A comfortable and stylish T-shirt made from 70% cotton.', },
-      { name: 'Jeans', image: 'menimg.webp' ,  price: '$25.99', description: 'A comfortable and stylish T-shirt made from 60% cotton.', },
+      
+      {   name: 'T-shirt',
+      image: 'menimg.webp',
+      price: '$25.99',
+      
+      size: ['S', 'M', 'L', 'XL'],
+      color: ['Red', 'Blue', 'Black'],
+      material: '100% Cotton',
+      stock: 'In Stock: 50',
+     },
+      { name: 'Jeans', image: 'men5.jpeg' ,  price: '$25.99',  description: 'dfghtfrdcvbhytrdcvbghytrdcvbhytrdfgtrf.',  },
+      { name: 'Jeans', image: 'men6.webp' ,  price: '$25.99' , description: 'A comfortable and stylish T-shirt made from 100% cotton.', },
+      { name: 'Jeans', image: 'men7.jpg' ,  price: '$25.99', description: 'A comfortable and stylish T-shirt made from 100% cotton.', },
     
     ],
     women: [
-      { name: 'Dress', image: 'men2.jpg' },
-      { name: 'Skirt', image: 'men2.jpg' },
-      { name: 'Skirt', image: 'men2.jpg' },
-      { name: 'Skirt', image: 'men2.jpg' },
-      { name: 'Skirt', image: 'men2.jpg' },
+      { name: 'Dress', image: 'women1.jpeg' },
+      { name: 'Skirt', image: 'women2.webp' },
+      { name: 'Skirt', image: 'women3.jpeg' },
+      { name: 'Skirt', image: 'women4.webp' },
+      { name: 'Skirt', image: 'women5.jpeg' },
     ],
 
     kids: [
-      { name: 'Jacket', image: 'men4.jpg' },
-      { name: 'Shorts', image: 'men4.jpg' },
-      { name: 'Jacket', image: 'men4.jpg' },
-      { name: 'Shorts', image: 'men4.jpg' },
-      { name: 'Shorts', image: 'men4.jpg' },
+      { name: 'Jacket', image: 'kids1.webp' },
+      { name: 'Shorts', image: 'kids2.jpeg' },
+      { name: 'Jacket', image: 'kids3.jpeg' },
+      { name: 'Shorts', image: 'kids4.webp' },
+      { name: 'Shorts', image: 'kids5.webp' },
       
     ],
   };
@@ -69,7 +78,7 @@ const Home = () => {
           {sliderImages.map((slide, index) => (
             <div
               key={index}
-              className={`slide ${activeSlide === index ? 'slide-active' : ''}`}
+              className={`slide ${activeSlide === index  ? 'slide-active' : ''}`}
             >
               <img src={`/images/${slide.image}`} alt={`Slide ${index + 1}`} />
               <div className="slider-text">{slide.text}</div>
@@ -87,8 +96,9 @@ const Home = () => {
                   <img src={`/images/${product.image}`} alt={product.name} />
                   <p>{product.name}</p>
 
-                     <div className="product-details">
-                      {product.description && (
+
+                  <div className="product-details">
+                      {product.description &&(
                         <p className="product-description">{product.description}</p>
                       )}
                       {product.size && (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './men.css';
-import Layout from '../../component/layout/layout'
+import './MenProducts.css';
+import Layout from '../../components/Layout/Layout'
 
 const Men = () => {
   // Sample categories and items with images
