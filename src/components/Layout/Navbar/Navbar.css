@@ -1,0 +1,17 @@
+.navbar {
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1030; /* Ensure it stays on top of other content */
+    background-color: #f8f9fa; /* Optional: set a background color to avoid transparency issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+  }
+
+  
+  .navbar-nav .nav-link {
+    color: #000;
+    font-size: 16px;
+  }
+  .custom-search-bar {
+    width: 400px; /* Adjust the width as needed */
+  }
+  
