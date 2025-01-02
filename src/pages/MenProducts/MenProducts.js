@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MenProducts.css';
-import Layout from '../../components/Layout/Layout'
+import Layout from '../../components/Layout/Layout';
+import { Link } from 'react-router-dom';
 
 const Men = () => {
   // Sample categories and items with images
@@ -17,7 +18,7 @@ const Men = () => {
         { name: 'T-Shirt 7', img: 'tshirt4.jpeg' },
         { name: 'T-Shirt 8', img: 'tshirt3.jpeg' },
         { name: 'T-Shirt 9', img: 'tshirt2.jpeg' },
-        { name: 'T-Shirt 10', img: 'tshirt1.jpeg' }
+        { name: 'T-Shirt 10', img: 'tshirt1.jpeg' },
       ]
     },
     {
@@ -32,7 +33,7 @@ const Men = () => {
         { name: 'Jeans 7', img: 'jeans4.jpeg' },
         { name: 'Jeans 8', img: 'jeans3.jpg' },
         { name: 'Jeans 9', img: 'jeans2.webp' },
-        { name: 'Jeans 10', img: 'jeans1.jpeg' }
+        { name: 'Jeans 10', img: 'jeans1.jpeg' },
       ]
     },
     {
@@ -47,7 +48,7 @@ const Men = () => {
         { name: 'Shoes 7', img: 'shoes4.webp' },
         { name: 'Shoes 8', img: 'shoes3.jpeg' },
         { name: 'Shoes 9', img: 'shoes2.webp' },
-        { name: 'Shoes 10', img: 'shoes1.webp' }
+        { name: 'Shoes 10', img: 'shoes1.webp' },
       ]
     }
   ];
@@ -56,7 +57,31 @@ const Men = () => {
     categories.map(() => 0) // Initially start at index 0 for each category
   );
 
-  // Function to show more items when scrolling right
+  const [wishlist, setWishlist] = useState(() => {
+    const savedWishlist = JSON.parse(localStorage.getItem('wishlist'));
+    return savedWishlist || [];
+  });
+
+  // Function to handle adding/removing items from the wishlist
+  const toggleWishlist = (item) => {
+    setWishlist((prevWishlist) => {
+      const itemExists = prevWishlist.some((wishItem) => wishItem.name === item.name);
+      if (itemExists) {
+        const updatedWishlist = prevWishlist.filter((wishItem) => wishItem.name !== item.name);
+        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+        return updatedWishlist;
+      } else {
+        const updatedWishlist = [...prevWishlist, item];
+        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+        return updatedWishlist;
+      }
+    });
+  };
+
+  // Function to check if an item is in the wishlist
+  const isInWishlist = (item) => wishlist.some((wishItem) => wishItem.name === item.name);
+
+  // Scroll functions
   const handleScrollRight = (index) => {
     setStartIndexes((prev) => {
       const newStartIndexes = [...prev];
@@ -67,7 +92,6 @@ const Men = () => {
     });
   };
 
-  // Function to show fewer items when scrolling left
   const handleScrollLeft = (index) => {
     setStartIndexes((prev) => {
       const newStartIndexes = [...prev];
@@ -80,45 +104,64 @@ const Men = () => {
 
   return (
     <Layout>
-    <div className="men-page">
-      <h1>Men's Clothing</h1>
-      <div className="category-container">
-        {categories.map((category, index) => (
-          <div key={category.name} className="category">
-            <h2>{category.name}</h2>
+      <div className="men-page">
+        <h1>Men's Clothing</h1>
+        {/* <Link to="/wishlist">
+          <button className="view-wishlist-button">View Wishlist</button>
+        </Link> */}
+        <div className="category-container">
+          {categories.map((category, index) => (
+            <div key={category.name} className="category">
+              <h2>{category.name}</h2>
 
-            {/* Scroll Button Left */}
-            {startIndexes[index] > 0 && (
-              <button className="scroll-button left" onClick={() => handleScrollLeft(index)}>
-                &lt;
-              </button>
-            )}
+              {/* Scroll Button Left */}
+              {startIndexes[index] > 0 && (
+                <button
+                  className="scroll-button left"
+                  onClick={() => handleScrollLeft(index)}
+                >
+                  &lt;
+                </button>
+              )}
 
-            <div className="category-items">
-              {category.items
-                .slice(startIndexes[index], startIndexes[index] + 5) // Only show 5 items at a time
-                .map((item, idx) => (
-                  <div key={idx} className="item">
-                   <img
-                     src={`/images/${item.img}`} // Use path relative to the public folder
-                      alt={item.name}
-                      className="item-image"
+              <div className="category-items">
+                {category.items
+                  .slice(startIndexes[index], startIndexes[index] + 5) // Show 5 items at a time
+                  .map((item, idx) => (
+                    <div key={idx} className="item">
+                      <img
+                        src={`/images/${item.img}`} // Assuming images are in the public/images folder
+                        alt={item.name}
+                        className="item-image"
                       />
-                    <p>{item.name}</p>
-                  </div>
-                ))}
-            </div>
+                      <p>{item.name}</p>
+                      <button
+                        className={`wishlist-button ${isInWishlist(item) ? 'in-wishlist' : ''}`}
+                        onClick={() => toggleWishlist(item)}
+                      >
+                        {isInWishlist(item) ? (
+                          <i className="bi bi-heart-fill wishlist-icon filled" />
+                        ) : (
+                          <i className="bi bi-heart wishlist-icon" />
+                        )}
+                      </button>
+                    </div>
+                  ))}
+              </div>
 
-            {/* Scroll Button Right */}
-            {startIndexes[index] + 5 < category.items.length && (
-              <button className="scroll-button right" onClick={() => handleScrollRight(index)}>
-                &gt;
-              </button>
-            )}
-          </div>
-        ))}
+              {/* Scroll Button Right */}
+              {startIndexes[index] + 5 < category.items.length && (
+                <button
+                  className="scroll-button right"
+                  onClick={() => handleScrollRight(index)}
+                >
+                  &gt;
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
     </Layout>
   );
 };
