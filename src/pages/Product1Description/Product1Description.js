@@ -4,13 +4,33 @@ import './Product1Description.css'; // Make sure the CSS path is correct
 
 const ProductDescription = () => {
   const [selectedImage, setSelectedImage] = useState('/images/11.jpg'); // State to manage selected image
-
-  // List of images
-  const images = ['/images/11.jpg', '/images/22.jpg', '/images/33.jpg', '/images/44.jpg'];
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // To keep track of the current image index
+  const images = ['/images/11.jpg', '/images/22.jpg', '/images/33.jpg', '/images/44.jpg']; // List of images
 
   // Function to handle thumbnail click
-  const handleThumbnailClick = (image) => {
+  const handleThumbnailClick = (image, index) => {
     setSelectedImage(image);
+    setCurrentImageIndex(index);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);  
+  };
+
+  // Function to navigate to next image in the modal
+  const showNextImage = () => {
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    setCurrentImageIndex(nextIndex);
+    setSelectedImage(images[nextIndex]);
+  };
+
+  // Function to navigate to previous image in the modal
+  const showPreviousImage = () => {
+    const prevIndex = (currentImageIndex - 1 + images.length) % images.length;
+    setCurrentImageIndex(prevIndex);
+    setSelectedImage(images[prevIndex]);
   };
 
   return (
@@ -18,27 +38,78 @@ const ProductDescription = () => {
       <div className="product-description-container">
         {/* Left side: Product Images */}
         <div className="product-images">
-          {/* Main large image */}
-          <div className="main-image-container">
-            <img src={selectedImage} alt="Selected Product" className="main-image" />
-          </div>
-          {/* Thumbnail images */}
           <div className="image-grid">
-            {images.map((image, index) => (
-              <div key={index} className="grid-image-container">
-                <img
-                  src={image}
-                  alt={`Product Image ${index + 1}`}
-                  className={`grid-image ${selectedImage === image ? 'active' : ''}`}
-                  onClick={() => handleThumbnailClick(image)}
-                />
-              </div>
-            ))}
+            {/* First Row */}
+            <div className="image-row">
+              {images.slice(0, 2).map((image, index) => (
+                <div key={index} className="grid-image-container">
+                  <img
+                    src={image}
+                    alt={`Product Image ${index + 1}`}
+                    className={`grid-image ${selectedImage === image ? 'active' : ''}`}
+                    onClick={() => {
+                      setSelectedImage(image);
+                      setCurrentImageIndex(index);
+                      setIsModalOpen(true);  // Open modal when thumbnail is clicked
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Second Row */}
+            <div className="image-row">
+              {images.slice(2).map((image, index) => (
+                <div key={index + 2} className="grid-image-container">
+                  <img
+                    src={image}
+                    alt={`Product Image ${index + 3}`}
+                    className={`grid-image ${selectedImage === image ? 'active' : ''}`}
+                    onClick={() => {
+                      setSelectedImage(image);
+                      setCurrentImageIndex(index + 2);
+                      setIsModalOpen(true);  // Open modal when thumbnail is clicked
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
+        {/* Modal for Fullscreen Image */}
+        {isModalOpen && (
+          <div className="fullscreen-modal">
+            <button className="close-button" onClick={closeModal}>×</button>
+
+            {/* Image Navigation (Left and Right Buttons) */}
+            <button className="image-navigation left" onClick={showPreviousImage}>←</button>
+            <button className="image-navigation right" onClick={showNextImage}>→</button>
+
+            {/* Thumbnail Container on top-left */}
+            <div className="thumbnail-container">
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
+                  className={`thumbnail-image ${selectedImage === image ? 'active' : ''}`}
+                  onClick={() => handleThumbnailClick(image, index)}
+                />
+              ))}
+            </div>
+
+            <div className="fullscreen-image-container">
+              <img
+                src={selectedImage}
+                alt="Full Size"
+                className="fullscreen-image"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Right side: Product Details */}
-        <div className="product-details">
+        <div className="product-detailss">
           <h1 className="product-title">Product Name</h1>
           <h2 className="product-subtitle">Product Subtitle</h2>
           <p className="product-price">
@@ -47,6 +118,24 @@ const ProductDescription = () => {
             <span className="discount">30% off</span>
             <span className="inclusive-taxes">Inclusive of all taxes</span>
           </p>
+
+
+
+
+    {/* Size Selector */}
+    <div className="color-selector">
+  <label>Colors:</label>
+  <div className="color-options">
+    <button className="color-option" style={{ backgroundColor: 'red' }}></button>
+    <button className="color-option" style={{ backgroundColor: 'pink' }}></button>
+    <button className="color-option" style={{ backgroundColor: 'yellow' }}></button>
+    <button className="color-option" style={{ backgroundColor: 'blue' }}></button>
+    <button className="color-option active" style={{ backgroundColor: 'black' }}></button>
+    <button className="color-option" style={{ backgroundColor: 'white', border: '1px solid #ccc' }}></button>
+    <button className="color-option" style={{ backgroundColor: 'brown' }}></button>
+  </div>
+</div>
+
 
           {/* Size Selector */}
           <div className="size-selector">
