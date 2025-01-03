@@ -79,7 +79,7 @@
 }
 
 /* Details container hidden by default */
-.product-details {
+.product-detailed {
   position: absolute;
   top: 0;
   left: 0;
@@ -96,7 +96,7 @@
   overflow-y: auto;
 }
 /* Show details on hover */
-.product-item:hover .product-details {
+.product-item:hover .product-detailed {
   opacity: 1;
 }
 
@@ -231,7 +231,7 @@ body {
   transform: scale(1.05);
 }
 
-.product-details {
+.product-detailed {
   padding: 15px;
   font-size: 0.9rem;
   color: #555;
@@ -346,3 +346,4 @@ body {
     font-size: 18px; /* Smaller text on mobile */
   }
 }
+

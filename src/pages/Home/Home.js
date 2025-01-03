@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
+import { Link } from 'react-router-dom';
 import './Home.css'; // Assuming you create a CSS file for styles
 
 const Home = () => {
@@ -14,6 +15,9 @@ const Home = () => {
     { image: 'men3.jpg', text: 'Fashionable Styles for Everyone!' },
     { image: 'men4.jpg', text: 'Shop the Latest Trends Now!' },
   ];
+  <Link to="/men">
+        <button className="men-link-button">Shop Men's Clothing</button>
+      </Link>
 
   const products = {
     men: [
@@ -97,7 +101,7 @@ const Home = () => {
                   <p>{product.name}</p>
 
 
-                  <div className="product-details">
+                  <div className="product-detailed">
                       {product.description &&(
                         <p className="product-description">{product.description}</p>
                       )}
