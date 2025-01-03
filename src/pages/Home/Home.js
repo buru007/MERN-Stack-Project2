@@ -97,7 +97,7 @@ const Home = () => {
                   <p>{product.name}</p>
 
 
-                  <div className="product-details">
+                  <div className="product-detailed">
                       {product.description &&(
                         <p className="product-description">{product.description}</p>
                       )}
