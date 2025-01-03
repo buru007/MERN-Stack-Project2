@@ -1,0 +1,434 @@
+/* General container */
+.product-description-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side: Product Images */
+.product-images {
+  flex: 1;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Right side: Product Details */
+.product-detailed {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #e63946;
+}
+
+.original-price {
+  text-decoration: line-through;
+  margin-right: 10px;
+  color: #aaa;
+}
+
+.mrp {
+  font-size: 16px;
+  color: #888;
+}
+
+.discount {
+  color: #2a9d8f;
+}
+
+.inclusive-taxes {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Size Selector */
+.size-selector {
+  margin-top: 25px;
+}
+
+.size-dropdown {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.size-dropdown:focus {
+  border-color: #2a9d8f;
+  outline: none;
+}
+
+/* Buttons */
+.add-to-bag, .wishlist-button{
+  color: white;
+  padding: 12px;
+  border: none;
+  
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.check-button {
+     color: rgb(243, 9, 192);
+     font-weight: bold;
+     border: none;
+}
+
+
+
+/* Delivery Options */
+.delivery-options {
+  margin-top: 25px;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.pincode-input {
+  padding: 10px;
+  width: 80%;
+  margin-right: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.pincode-input:focus {
+  border-color: #2a9d8f;
+  outline: none;
+}
+
+/* Best Offer */
+.best-offer {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f4a261;
+}
+
+/* Product Details Section */
+.product-details-section, .product-specifications {
+  margin-top: 25px;
+}
+
+.product-details-section h3, .product-specifications h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-details-section p, .product-specifications li {
+  font-size: 16px;
+  color: #555;
+}
+
+.product-specifications ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-specifications li {
+  margin-bottom: 8px;
+}
+/* Basic styling for the size selector container */
+.size-selector {
+  font-family: 'Arial', sans-serif;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+.size-selector label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Container for size options */
+.size-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Styling for each size button */
+.size-option {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%; /* Circle shape */
+  border: 2px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Hover and focus effect */
+.size-option:hover
+{
+  border-color: #f104a2;
+  transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Active state (on click) */
+.size-option:active {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(0); /* Reset movement */
+}
+/* Container for action buttons */
+.product-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Add to Bag Button */
+.add-to-bag {
+  padding: 14px 30px;
+  font-size: 18px;
+  color: #edefef;
+  border-radius: 5px;
+  background-color: #ed148c;
+  cursor: pointer;
+  gap: 8px;
+}
+
+
+/* Wishlist Button */
+.wishlist-button {
+  padding: 14px 30px;
+  font-size: 18px;
+  color: #050505;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  gap: 8px;
+}
+
+
+
+/* Icon styling */
+.wishlist-button span {
+  font-size: 20px;
+}
+
+
+
+/* Styling for selected size button */
+.size-option.selected {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+/* Basic styling for the size chart button container */
+.size-chart-btn { 
+  font-size: 18px; /* Font size */
+  font-weight: bold; /* Makes the text bold */
+  color: #ed148c; /* Text color */
+  border: none; /* Removes default border */
+  border-radius: 30px; /* Rounded corners */
+  display: flex; /* Flexbox for centering content */
+  text-transform: uppercase; /* Uppercase letters for a bold look */
+  letter-spacing: 1px; /* Adds slight spacing between letters */
+  transition: all 0.3s ease; /* Smooth transitions for hover and active states */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/* Container for label and button */
+.size-chart-container {
+  display: flex;
+  align-items: center; /* Vertically align the label and button in the center */
+  gap: 20px; /* Space between the label and button */
+  margin: 20px 0;
+}
+
+
+
+.product-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the thumbnails horizontally */
+}
+
+.main-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0; /* Remove margin between the main image and thumbnails */
+}
+
+.main-image {
+  width: 100%;
+  max-width: 500px; /* Adjust as necessary for your layout */
+  height: auto;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the thumbnails horizontally */
+  gap: 0; /* Remove gap between the grid images */
+  margin-top: 0; /* Ensure no space between the images */
+}
+
+.grid-image-container {
+  width: 48%; /* Adjust width to ensure the images fit */
+  margin: 0; /* Remove margin around grid images */
+  display: flex;
+  justify-content: center; /* Center the thumbnail images */
+}
+
+.grid-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.grid-image.active {
+  border: 2px solid #f30bd0; /* Highlight selected image */
+}
+
+.grid-image:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Social Media Sharing Section */
+.social-sharing {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.social-sharing h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.social-button {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-button:hover {
+  background-color: #0078d4;
+  color: #ffffff;
+}
+
+.social-button:last-child {
+  margin-right: 0;
+}
+
+/* Optional: Style specific buttons for each platform */
+.social-button.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.social-button.facebook:hover {
+  background-color: #365899;
+}
+
+.social-button.twitter {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.social-button.twitter:hover {
+  background-color: #1a91d0;
+}
+
+.social-button.whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+
+.social-button.whatsapp:hover {
+  background-color: #128c7e;
+}
+
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .product-description-container {
+      flex-direction: column;
+  }
+
+  .product-images, .product-details {
+      margin: 0;
+  }
+}
