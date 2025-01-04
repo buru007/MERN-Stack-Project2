@@ -1,12 +1,16 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
+=======
+import './Navbar.css'; // Make sure your styles are applied
+>>>>>>> 0ef68ed825326f08610f5852279e61de8b83b3b5
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Amazon Lite</a>
+        <a className="navbar-brand" href="#">Navbar</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,7 +28,22 @@ function Navbar() {
               <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li className="nav-item">
+<<<<<<< HEAD
             <Link className="nav-link" to="/cart">Cart 🛒</Link>
+=======
+              {/* Cart Icon */}
+              <a className="nav-link" href="#">
+                <i className="bi bi-cart"></i> {/* Cart Icon */}
+                Cart
+              </a>
+            </li>
+            <li className="nav-item">
+              {/* Wishlist Icon */}
+              <a className="nav-link" href="/wishlist">
+                <i className="bi bi-heart"></i> {/* Wishlist Icon */}
+                Wishlist
+              </a>
+>>>>>>> 0ef68ed825326f08610f5852279e61de8b83b3b5
             </li>
             <li className="nav-item dropdown">
               <a
@@ -32,9 +51,9 @@ function Navbar() {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
+                aria-expanded="true"
               >
-                Categories
+                Category
               </a>
               <ul className="dropdown-menu">
               <li><Link className="dropdown-item" to="/men">Men</Link></li>
@@ -45,30 +64,20 @@ function Navbar() {
             <li className="nav-item">
               <a className="nav-link" href="#">Contact Us</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
           </ul>
-          <form className="d-flex me-3" role="search">
-          <input
-  className="form-control me-2 custom-search-bar"
-  type="search"
-  placeholder="Search for products, brands, and more"
-  aria-label="Search"
-/>
+
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
-          <ul className="navbar-nav d-flex align-items-center">
-            {/* Profile */}
-            <li className="nav-item">
-              <a className="nav-link" href="#" title="Profile">👤 Profile</a>
-            </li>
-            {/* Wishlist */}
-            <li className="nav-item">
-              <a className="nav-link" href="#" title="Wishlist">♡ Wishlist</a>
-            </li>
-            {/* Bag */}
-            <li className="nav-item">
-              <a className="nav-link" href="#" title="Bag">🛍️ Bag</a>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>

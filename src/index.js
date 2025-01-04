@@ -4,6 +4,7 @@ import './index.css'; // Optional: for global styles
 import App from './App'; // Importing the Navbar component
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS
 
+
 // Get the root element from the DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

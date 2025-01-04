@@ -65,17 +65,17 @@ export default function Footer() {
             Kashmir, 190001
           </p>
           <p>
-            <i className="fas fa-phone"></i> +91 7889385611
+            <i className="fas fa-phone"></i> +91 7006259479
           </p>
           <p>
-            <i className="fas fa-envelope"></i> saqlainmushtaq1919@gmail.com
+            <i className="fas fa-envelope"></i> dsheikh242@gmail.com
           </p>
         </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <p>&copy; {currentYear} Website made with Love By Saqlain Mushtaq. All Rights Reserved.</p>
+        <p>&copy; {currentYear} Website made with Love By Sheikh Danish. All Rights Reserved.</p>
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-facebook"></i>

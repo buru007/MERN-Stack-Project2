@@ -7,25 +7,28 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f8f8;
+  background: linear-gradient(135deg, #f5f7fa, #e9eff1);
   color: #333;
 }
 
 /* Main container for the page */
 .men-page {
-  padding: 40px 20px;
-  max-width: 1200px;
+  padding: 50px 20px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 40px;
-  color: #333;
+  color: #2c3e50;
   font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
+/* Category container layout */
 .category-container {
   display: flex;
   flex-direction: column;
@@ -35,94 +38,164 @@ h1 {
 /* Category Container Styling */
 .category {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.category:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
 }
 
 /* Category Title */
 .category h2 {
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.5rem;
+  color: #34495e;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-/* Item grid container */
+/* Item grid container (carousel layout) */
 .category-items {
   display: flex;
   overflow: hidden;
   gap: 20px;
-  transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Each item styling (cards) */
+/* Each item card styling */
 .item {
-  width: 200px;
+  width: 100%;
   background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Image styling */
 .item-image {
   width: 100%;
-  height: 200px;
+  height: 230px;
   object-fit: cover;
-  transition: all 0.3s ease;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .item:hover .item-image {
   transform: scale(1.05);
 }
 
+/* Item title/text */
 .item p {
-  text-align: center;
-  padding: 10px;
+  padding: 12px;
   font-size: 1.1rem;
-  color: #333;
   font-weight: 600;
-  background-color: #f7f7f7;
+  text-align: center;
+  color: #34495e;
+  background-color: #ecf0f1;
   margin: 0;
+  border-radius: 0 0 12px 12px;
+  transition: background-color 0.3s ease;
 }
 
-/* Scroll buttons */
+.item:hover p {
+  background-color: #bdc3c7;
+}
+
+/* Scroll buttons - Neon Pulse Effect */
 .scroll-button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  font-size: 24px;
+  background-color: transparent;
+  color: black;
+  border: 2px solid #3498db;
+  padding: 14px 22px;
+  font-size: 28px;
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
 }
 
 .scroll-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  color: #3498db;
+  background-color: #fff;
+  animation: pulse 1s infinite;
+  transform: scale(1.1);
 }
 
 .scroll-button.left {
-  left: -25px;
+  left: -66px;
 }
 
 .scroll-button.right {
-  right: 10px;
+  right: -66px;
 }
+
+/* Neon Pulse Effect */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+  }
+  50% {
+    box-shadow: 0 0 30px #3498db, 0 0 60px #3498db;
+  }
+  100% {
+    box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+  }
+}
+
+
+/* Basic button styling */
+.wishlist-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Styling for when the item is in the wishlist */
+.wishlist-button.in-wishlist {
+  color:black; /* Pink color for filled heart */
+  transform: scale(1.2); /* Slightly increase the size when in wishlist */
+}
+
+/* Heart icon styling */
+.wishlist-icon {
+  font-size: 15px; /* Set icon size */
+  color:black; /* Default grey color for the heart */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Filled heart (when item is in the wishlist) */
+.wishlist-icon.filled {
+  color:black; /* Change the heart color to pink when it's in the wishlist */
+}
+
+/* Hover effect on wishlist button */
+.wishlist-button:hover {
+  transform: scale(1.1); /* Slightly scale the button on hover */
+}
+
+/* Add some space around the button (optional) */
+.wishlist-button i {
+  margin: 0;
+}
+
 
 /* For responsive designs */
 @media (max-width: 768px) {
@@ -133,11 +206,10 @@ h1 {
   .item {
     width: 150px;
   }
-
-  .scroll-button {
-    font-size: 20px;
-    padding: 8px 12px;
-  }
+    /* Hide scroll buttons on mobile and tablet */
+    .scroll-button {
+      display: none;
+    }
 }
 
 @media (max-width: 480px) {
