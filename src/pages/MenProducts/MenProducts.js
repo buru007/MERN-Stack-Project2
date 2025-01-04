@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import './MenProducts.css';
 import Layout from '../../components/Layout/Layout';
 import { Link } from 'react-router-dom';
+=======
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link component
+import './MenProducts.css';
+import Layout from '../../components/Layout/Layout';
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
 
 const Men = () => {
   // Sample categories and items with images
@@ -9,6 +16,7 @@ const Men = () => {
     {
       name: 'T-Shirts',
       items: [
+<<<<<<< HEAD
         { name: 'T-Shirt 1', img: 'tshirt1.jpeg' },
         { name: 'T-Shirt 2', img: 'tshirt2.jpeg' },
         { name: 'T-Shirt 3', img: 'tshirt3.jpeg' },
@@ -51,6 +59,18 @@ const Men = () => {
         { name: 'Shoes 10', img: 'shoes1.webp' },
       ]
     }
+=======
+        { name: 'T-Shirt 1', img: 'tshirt1.jpeg', id: 1 },
+        { name: 'T-Shirt 2', img: 'tshirt2.jpeg', id: 2 },
+        { name: 'T-Shirt 1', img: 'tshirt1.jpeg', id: 1 },
+        { name: 'T-Shirt 2', img: 'tshirt2.jpeg', id: 2 },
+        { name: 'T-Shirt 1', img: 'tshirt1.jpeg', id: 1 },
+        { name: 'T-Shirt 2', img: 'tshirt2.jpeg', id: 2 },
+        // Add unique ids for each product
+      ]
+    },
+    // Other categories here...
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
   ];
 
   const [startIndexes, setStartIndexes] = useState(
@@ -106,9 +126,12 @@ const Men = () => {
     <Layout>
       <div className="men-page">
         <h1>Men's Clothing</h1>
+<<<<<<< HEAD
         {/* <Link to="/wishlist">
           <button className="view-wishlist-button">View Wishlist</button>
         </Link> */}
+=======
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
         <div className="category-container">
           {categories.map((category, index) => (
             <div key={category.name} className="category">
@@ -116,16 +139,21 @@ const Men = () => {
 
               {/* Scroll Button Left */}
               {startIndexes[index] > 0 && (
+<<<<<<< HEAD
                 <button
                   className="scroll-button left"
                   onClick={() => handleScrollLeft(index)}
                 >
+=======
+                <button className="scroll-button left" onClick={() => handleScrollLeft(index)}>
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
                   &lt;
                 </button>
               )}
 
               <div className="category-items">
                 {category.items
+<<<<<<< HEAD
                   .slice(startIndexes[index], startIndexes[index] + 5) // Show 5 items at a time
                   .map((item, idx) => (
                     <div key={idx} className="item">
@@ -145,16 +173,33 @@ const Men = () => {
                           <i className="bi bi-heart wishlist-icon" />
                         )}
                       </button>
+=======
+                  .slice(startIndexes[index], startIndexes[index] + 5) // Only show 5 items at a time
+                  .map((item) => (
+                    <div key={item.id} className="item">
+                      <Link to={`/Product1description`}> {/* Link to the product description page */}
+                        <img
+                          src={`/images/${item.img}`} // Use path relative to the public folder
+                          alt={item.name}
+                          className="item-image"
+                        />
+                        <p>{item.name}</p>
+                      </Link>
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
                     </div>
                   ))}
               </div>
 
               {/* Scroll Button Right */}
               {startIndexes[index] + 5 < category.items.length && (
+<<<<<<< HEAD
                 <button
                   className="scroll-button right"
                   onClick={() => handleScrollRight(index)}
                 >
+=======
+                <button className="scroll-button right" onClick={() => handleScrollRight(index)}>
+>>>>>>> 136e2be7f504fcfbf8aee474246b81373356288c
                   &gt;
                 </button>
               )}
