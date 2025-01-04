@@ -1,10 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-import "./Navbar.css";
-=======
 import './Navbar.css'; // Make sure your styles are applied
->>>>>>> 0ef68ed825326f08610f5852279e61de8b83b3b5
 
 function Navbar() {
   return (
@@ -28,9 +23,6 @@ function Navbar() {
               <a className="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li className="nav-item">
-<<<<<<< HEAD
-            <Link className="nav-link" to="/cart">Cart 🛒</Link>
-=======
               {/* Cart Icon */}
               <a className="nav-link" href="#">
                 <i className="bi bi-cart"></i> {/* Cart Icon */}
@@ -43,7 +35,6 @@ function Navbar() {
                 <i className="bi bi-heart"></i> {/* Wishlist Icon */}
                 Wishlist
               </a>
->>>>>>> 0ef68ed825326f08610f5852279e61de8b83b3b5
             </li>
             <li className="nav-item dropdown">
               <a
